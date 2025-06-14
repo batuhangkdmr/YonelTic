@@ -1,0 +1,147 @@
+import React, { useEffect, useState } from 'react';
+import {
+  Box,
+  Button,
+  Card,
+  CardMedia,
+  Typography,
+  Container,
+  Grid,
+  Snackbar,
+  Alert,
+  CircularProgress
+} from '@mui/material';
+import axios from 'axios';
+
+const API_URL = 'http://localhost:5054/api/SliderImages';
+const SLIDER_SLOT_COUNT = 6;
+const sliderPlaceholder = '/images/placeholder.png';
+
+const SliderManagement = () => {
+  const [images, setImages] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [uploading, setUploading] = useState(Array(SLIDER_SLOT_COUNT).fill(false));
+  const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
+  const [selectedFiles, setSelectedFiles] = useState(Array(SLIDER_SLOT_COUNT).fill(null));
+
+  // Slider slotlarını doldur (eksik varsa placeholder)
+  const sliderSlots = Array.from({ length: SLIDER_SLOT_COUNT }).map((_, i) => images[i] || null);
+
+  const token = localStorage.getItem('token');
+
+  const fetchImages = async () => {
+    setLoading(true);
+    try {
+      const res = await axios.get(API_URL);
+      setImages(res.data);
+    } catch (err) {
+      setSnackbar({ open: true, message: 'Slider görselleri alınamadı.', severity: 'error' });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
+
+  const handleFileChange = (slotIdx, file) => {
+    const updated = [...selectedFiles];
+    updated[slotIdx] = file;
+    setSelectedFiles(updated);
+  };
+
+  const handleUpload = async (slotIdx) => {
+    if (!selectedFiles[slotIdx]) return;
+    const isUpdate = !!sliderSlots[slotIdx];
+    setUploading((prev) => prev.map((v, i) => (i === slotIdx ? true : v)));
+    const formData = new FormData();
+    formData.append('Image', selectedFiles[slotIdx]);
+    try {
+      if (isUpdate) {
+        // Sil, sonra ekle (sıra garantisi için)
+        await axios.delete(`${API_URL}/${sliderSlots[slotIdx].id}`, {
+          headers: token ? { Authorization: `Bearer ${token}` } : {}
+        });
+      }
+      await axios.post(API_URL, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          ...(token && { Authorization: `Bearer ${token}` })
+        }
+      });
+      setSnackbar({ open: true, message: `#${slotIdx + 1} slider görseli güncellendi.`, severity: 'success' });
+      setSelectedFiles((prev) => prev.map((f, i) => (i === slotIdx ? null : f)));
+      fetchImages();
+    } catch (err) {
+      setSnackbar({ open: true, message: 'Yükleme başarısız.', severity: 'error' });
+    } finally {
+      setUploading((prev) => prev.map((v, i) => (i === slotIdx ? false : v)));
+    }
+  };
+
+  return (
+    <Container maxWidth="md" sx={{ mt: 4 }}>
+      <Typography variant="h4" mb={3}>Slider Yönetimi</Typography>
+      <Grid container spacing={3}>
+        {Array.from({ length: SLIDER_SLOT_COUNT }).map((_, idx) => (
+          <Grid item xs={12} sm={6} md={4} key={idx}>
+            <Card sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Typography variant="subtitle1" fontWeight={700} mb={1}>
+                {`#${idx + 1} Slider Alanı`}
+              </Typography>
+              <CardMedia
+                component="img"
+                height="160"
+                image={sliderSlots[idx]?.imageUrl || sliderSlots[idx]?.ImageUrl || sliderPlaceholder}
+                alt={`Slider ${idx + 1}`}
+                sx={{ objectFit: 'cover', borderRadius: 2, mb: 2, width: '100%', maxWidth: 260, minHeight: 160, bgcolor: '#f3f3f3' }}
+              />
+              <Button
+                variant="contained"
+                component="label"
+                disabled={uploading[idx]}
+                sx={{ mb: 1 }}
+              >
+                {sliderSlots[idx] ? 'Değiştir' : 'Yükle'}
+                <input
+                  type="file"
+                  hidden
+                  accept="image/*"
+                  onChange={e => handleFileChange(idx, e.target.files[0])}
+                />
+              </Button>
+              {selectedFiles[idx] && (
+                <Button
+                  variant="outlined"
+                  color="success"
+                  onClick={() => handleUpload(idx)}
+                  disabled={uploading[idx]}
+                  sx={{ mb: 1 }}
+                >
+                  {uploading[idx] ? <CircularProgress size={20} /> : 'Kaydet'}
+                </Button>
+              )}
+              {sliderSlots[idx]?.imageUrl && (
+                <Typography variant="caption" color="text.secondary" sx={{ mt: 1, wordBreak: 'break-all' }}>
+                  {sliderSlots[idx].imageUrl}
+                </Typography>
+              )}
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={4000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+      >
+        <Alert severity={snackbar.severity} sx={{ width: '100%' }}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
+    </Container>
+  );
+};
+
+export default SliderManagement; 

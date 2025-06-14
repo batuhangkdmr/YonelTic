@@ -1,0 +1,702 @@
+{
+  "Version": 1,
+  "Hash": "5kDZUcmXrfuNszOYBPTuTIeDt8UwJwoi28jW5ExsuHY=",
+  "Source": "backend",
+  "BasePath": "_content/backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "backend\\wwwroot",
+      "Source": "backend",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "js/site#[.{fingerprint=lkuqoog51j}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "to10zluu8b",
+      "Integrity": "cyD8m+ANKsHj1oG6+i8HXOFC2IfdQYEjJSAiu4SnRzE=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "css/site#[.{fingerprint=wse2veqh83}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "o4533ahi51",
+      "Integrity": "SOjMkXyMlYuPfyk4YdH5wj7kaZlJUlKTpGel3H/LgNQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "wse2veqh83",
+      "Integrity": "cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js",
+      "SourceId": "backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\",
+      "BasePath": "_content/backend",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lkuqoog51j",
+      "Integrity": "RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\site.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002242152466"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "445"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SOjMkXyMlYuPfyk4YdH5wj7kaZlJUlKTpGel3H/LgNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1016"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "445"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SOjMkXyMlYuPfyk4YdH5wj7kaZlJUlKTpGel3H/LgNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SOjMkXyMlYuPfyk4YdH5wj7kaZlJUlKTpGel3H/LgNQ="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.wse2veqh83.css",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002242152466"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "445"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SOjMkXyMlYuPfyk4YdH5wj7kaZlJUlKTpGel3H/LgNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wse2veqh83"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.wse2veqh83.css",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1016"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wse2veqh83"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cA4vcpkgLqxHrgTl6o9GdDoFvcbXCL8nkU+FujFk2bo="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.wse2veqh83.css.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "445"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SOjMkXyMlYuPfyk4YdH5wj7kaZlJUlKTpGel3H/LgNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wse2veqh83"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SOjMkXyMlYuPfyk4YdH5wj7kaZlJUlKTpGel3H/LgNQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002450980392"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "407"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cyD8m+ANKsHj1oG6+i8HXOFC2IfdQYEjJSAiu4SnRzE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "649"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cyD8m+ANKsHj1oG6+i8HXOFC2IfdQYEjJSAiu4SnRzE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-cyD8m+ANKsHj1oG6+i8HXOFC2IfdQYEjJSAiu4SnRzE="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.lkuqoog51j.js",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.002450980392"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "407"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cyD8m+ANKsHj1oG6+i8HXOFC2IfdQYEjJSAiu4SnRzE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lkuqoog51j"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.lkuqoog51j.js",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "649"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lkuqoog51j"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RdU+zphQ71YDTGdFe33WbTvm8R0aJB/T7Juu8au4vno="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.lkuqoog51j.js.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "407"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"cyD8m+ANKsHj1oG6+i8HXOFC2IfdQYEjJSAiu4SnRzE=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lkuqoog51j"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-cyD8m+ANKsHj1oG6+i8HXOFC2IfdQYEjJSAiu4SnRzE="
+        }
+      ]
+    }
+  ]
+}
