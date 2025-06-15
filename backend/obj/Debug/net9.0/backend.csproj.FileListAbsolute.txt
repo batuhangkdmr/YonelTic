@@ -520,3 +520,4 @@ C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\refint\bac
 C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\backend.pdb
 C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\ref\backend.dll
+C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\backend.sourcelink.json

@@ -81,9 +81,9 @@ const SliderManagement = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 4 }}>
+    <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Typography variant="h4" mb={3}>Slider Yönetimi</Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justifyContent="center">
         {Array.from({ length: SLIDER_SLOT_COUNT }).map((_, idx) => (
           <Grid item xs={12} sm={6} md={4} key={idx}>
             <Card sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -95,7 +95,7 @@ const SliderManagement = () => {
                 height="160"
                 image={sliderSlots[idx]?.imageUrl || sliderSlots[idx]?.ImageUrl || sliderPlaceholder}
                 alt={`Slider ${idx + 1}`}
-                sx={{ objectFit: 'cover', borderRadius: 2, mb: 2, width: '100%', maxWidth: 260, minHeight: 160, bgcolor: '#f3f3f3' }}
+                sx={{ objectFit: 'cover', borderRadius: 2, mb: 2, width: '100%', minHeight: 160, bgcolor: '#f3f3f3' }}
               />
               <Button
                 variant="contained"
@@ -111,6 +111,15 @@ const SliderManagement = () => {
                   onChange={e => handleFileChange(idx, e.target.files[0])}
                 />
               </Button>
+              {selectedFiles[idx] && (
+                <Box sx={{ mb: 1 }}>
+                  <img
+                    src={URL.createObjectURL(selectedFiles[idx])}
+                    alt="Preview"
+                    style={{ maxWidth: '100%', maxHeight: '100px', objectFit: 'contain' }}
+                  />
+                </Box>
+              )}
               {selectedFiles[idx] && (
                 <Button
                   variant="outlined"

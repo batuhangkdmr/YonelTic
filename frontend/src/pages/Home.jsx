@@ -262,7 +262,7 @@ const Home = () => {
       </Helmet>
 
       {/* Slider Alanı */}
-      <Box sx={{ width: '100vw', maxWidth: '100vw', overflowX: 'hidden', mt: 4, mb: 6, bgcolor: '#fff', boxSizing: 'border-box', px: 0 }}>
+      <Box sx={{ width: '100vw', maxWidth: '100vw', overflowX: 'hidden', mt: 4, mb: 6, bgcolor: '#f5f5f5', boxSizing: 'border-box', px: 0 }}>
         <Slider
           dots={true}
           infinite={false}
