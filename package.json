@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "react-owl-carousel": "^2.3.3",
+    "swiper": "^11.2.8"
+  }
+}

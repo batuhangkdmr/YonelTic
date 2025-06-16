@@ -59,17 +59,22 @@ const SliderManagement = () => {
     formData.append('Image', selectedFiles[slotIdx]);
     try {
       if (isUpdate) {
-        // Sil, sonra ekle (sıra garantisi için)
-        await axios.delete(`${API_URL}/${sliderSlots[slotIdx].id}`, {
-          headers: token ? { Authorization: `Bearer ${token}` } : {}
+        // Güncelleme: PUT ile ilgili id'ye yükle
+        await axios.put(`${API_URL}/${sliderSlots[slotIdx].id}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            ...(token && { Authorization: `Bearer ${token}` })
+          }
+        });
+      } else {
+        // Yeni ekleme: POST
+        await axios.post(API_URL, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            ...(token && { Authorization: `Bearer ${token}` })
+          }
         });
       }
-      await axios.post(API_URL, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          ...(token && { Authorization: `Bearer ${token}` })
-        }
-      });
       setSnackbar({ open: true, message: `#${slotIdx + 1} slider görseli güncellendi.`, severity: 'success' });
       setSelectedFiles((prev) => prev.map((f, i) => (i === slotIdx ? null : f)));
       fetchImages();
