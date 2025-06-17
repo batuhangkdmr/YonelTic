@@ -12,7 +12,7 @@ const About = () => {
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yoneloto.com/about" />
       </Helmet>
-      <Typography variant="h3" component="h1" gutterBottom align="center" sx={{ fontWeight: 800, mb: 2, color: 'darkred', letterSpacing: 1, fontSize: { xs: 32, md: 40 } }}>
+      <Typography variant="h3" component="h1" gutterBottom align="center" sx={{ fontWeight: 800, mb: 2, color: 'darkred', letterSpacing: 1, fontSize: { xs: 32, md: 40 }, overflow: 'hidden !important' }}>
         Hakkımızda
       </Typography>
       <Paper elevation={3} sx={{ p: { xs: 3, md: 6 }, borderRadius: 3, maxWidth: 900, mx: 'auto', textAlign: 'center' }}>

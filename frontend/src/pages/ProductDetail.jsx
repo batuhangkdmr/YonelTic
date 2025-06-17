@@ -9,8 +9,9 @@ import {
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import config from '../config';
 
-const API_BASE_URL = 'http://localhost:5054/api';
+const API_BASE_URL = config.API_BASE_URL;
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -60,10 +61,16 @@ const ProductDetail = () => {
         </Typography>
         <Button
           onClick={() => navigate(-1)}
-          sx={{ mt: 2 }}
           startIcon={<ArrowBackIcon />}
           variant="contained"
-          color="primary"
+          sx={{
+            mt: 2,
+            backgroundColor: 'darkred',
+            color: '#fff',
+            '&:hover': {
+              backgroundColor: '#a80000',
+            },
+          }}
         >
           Geri Dön
         </Button>
@@ -148,16 +155,16 @@ const ProductDetail = () => {
       {/* Geri Dön Butonu - kart altı sağda */}
       <Box sx={{ display: 'flex', justifyContent: 'flex-end', mt: 3 }}>
         <Button
+          onClick={() => navigate(-1)}
           startIcon={<ArrowBackIcon />}
           variant="contained"
           sx={{
-            backgroundColor: 'error.main',
+            backgroundColor: 'darkred',
             color: '#fff',
             '&:hover': {
-              backgroundColor: 'error.dark',
+              backgroundColor: '#a80000',
             },
           }}
-          onClick={() => navigate(-1)}
         >
           Geri Dön
         </Button>

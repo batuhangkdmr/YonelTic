@@ -10,13 +10,15 @@ import {
   Link
 } from '@mui/material';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
-import { apiFetch } from '../../utils/api';
+import config from '../../config';
+
+const API_BASE_URL = config.API_BASE_URL;
 
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: '',
-    passwordRepeat: '',
+    confirmPassword: '',
     secretKey: '',
   });
   const [error, setError] = useState(null);
@@ -33,19 +35,29 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
-    setSuccess(false);
+    if (formData.password !== formData.confirmPassword) {
+      setError('Şifreler eşleşmiyor');
+      return;
+    }
+
     try {
-      const response = await apiFetch('http://localhost:5054/api/auth/register', {
+      const response = await fetch(`${API_BASE_URL}/auth/register`, {
         method: 'POST',
-        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          password: formData.password,
+        }),
       });
+
       if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.message || 'Kayıt başarısız oldu');
+        throw new Error('Kayıt başarısız oldu');
       }
+
       setSuccess(true);
-      setTimeout(() => navigate('/login'), 1500);
+      setTimeout(() => navigate('/admin/login'), 1500);
     } catch (err) {
       setError(err.message);
     }
@@ -115,12 +127,12 @@ const Register = () => {
               margin="normal"
               required
               fullWidth
-              name="passwordRepeat"
+              name="confirmPassword"
               label="Şifre (Tekrar)"
               type="password"
-              id="passwordRepeat"
+              id="confirmPassword"
               autoComplete="new-password"
-              value={formData.passwordRepeat}
+              value={formData.confirmPassword}
               onChange={handleInputChange}
             />
             <TextField
@@ -143,7 +155,7 @@ const Register = () => {
               Kayıt Ol
             </Button>
             <Box sx={{ mt: 2, textAlign: 'center' }}>
-              <Link component={RouterLink} to="/login">
+              <Link component={RouterLink} to="/admin/login">
                 Zaten hesabınız var mı? Giriş Yap
               </Link>
             </Box>

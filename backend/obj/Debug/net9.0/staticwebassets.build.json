@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5kDZUcmXrfuNszOYBPTuTIeDt8UwJwoi28jW5ExsuHY=",
+  "Hash": "hcBrCwUAU/nxuL6Wd9dabINLHzwjEzH9biL75yiFBm4=",
   "Source": "backend",
   "BasePath": "_content/backend",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "backend\\wwwroot",
       "Source": "backend",
-      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "Identity": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/backend",
       "RelativePath": "js/site#[.{fingerprint=lkuqoog51j}]?.js.gz",
       "AssetKind": "All",
@@ -28,20 +28,20 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js",
+      "RelatedAsset": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\js\\site.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "to10zluu8b",
       "Integrity": "cyD8m+ANKsHj1oG6+i8HXOFC2IfdQYEjJSAiu4SnRzE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js"
+      "OriginalItemSpec": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "Identity": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/backend",
       "RelativePath": "css/site#[.{fingerprint=wse2veqh83}]?.css.gz",
       "AssetKind": "All",
@@ -49,20 +49,20 @@
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css",
+      "RelatedAsset": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "Fingerprint": "o4533ahi51",
       "Integrity": "SOjMkXyMlYuPfyk4YdH5wj7kaZlJUlKTpGel3H/LgNQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css"
+      "OriginalItemSpec": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\css\\site.css",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "css/site#[.{fingerprint}]?.css",
       "AssetKind": "All",
@@ -80,10 +80,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\js\\site.js",
       "SourceId": "backend",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\",
       "BasePath": "_content/backend",
       "RelativePath": "js/site#[.{fingerprint}]?.js",
       "AssetKind": "All",
@@ -104,7 +104,7 @@
   "Endpoints": [
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -127,7 +127,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -159,7 +159,7 @@
     },
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -180,7 +180,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -196,7 +196,7 @@
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -217,7 +217,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -241,7 +241,7 @@
     },
     {
       "Route": "css/site.wse2veqh83.css",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -264,7 +264,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -304,7 +304,7 @@
     },
     {
       "Route": "css/site.wse2veqh83.css",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\css\\site.css",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -325,7 +325,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -349,7 +349,7 @@
     },
     {
       "Route": "css/site.wse2veqh83.css.gz",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\jt1hm7z5lp-wse2veqh83.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -370,7 +370,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -402,7 +402,7 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -425,7 +425,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -457,7 +457,7 @@
     },
     {
       "Route": "js/site.js",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -478,7 +478,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -494,7 +494,7 @@
     },
     {
       "Route": "js/site.js.gz",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -515,7 +515,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -539,7 +539,7 @@
     },
     {
       "Route": "js/site.lkuqoog51j.js",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -562,7 +562,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -602,7 +602,7 @@
     },
     {
       "Route": "js/site.lkuqoog51j.js",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\wwwroot\\js\\site.js",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\wwwroot\\js\\site.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -623,7 +623,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -647,7 +647,7 @@
     },
     {
       "Route": "js/site.lkuqoog51j.js.gz",
-      "AssetFile": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
+      "AssetFile": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\Debug\\net9.0\\compressed\\di562wezpl-lkuqoog51j.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -668,7 +668,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 14 Jun 2025 16:36:00 GMT"
+          "Value": "Tue, 17 Jun 2025 11:01:16 GMT"
         },
         {
           "Name": "Cache-Control",

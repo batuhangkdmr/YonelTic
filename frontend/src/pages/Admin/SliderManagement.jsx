@@ -12,8 +12,9 @@ import {
   CircularProgress
 } from '@mui/material';
 import axios from 'axios';
+import config from '../../config';
 
-const API_URL = 'http://localhost:5054/api/SliderImages';
+const API_BASE_URL = config.API_BASE_URL;
 const SLIDER_SLOT_COUNT = 6;
 const sliderPlaceholder = '/images/placeholder.png';
 
@@ -29,10 +30,10 @@ const SliderManagement = () => {
 
   const token = localStorage.getItem('token');
 
-  const fetchImages = async () => {
+  const fetchSliderImages = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(API_URL);
+      const res = await axios.get(`${API_BASE_URL}/SliderImages`);
       setImages(res.data);
     } catch (err) {
       setSnackbar({ open: true, message: 'Slider görselleri alınamadı.', severity: 'error' });
@@ -42,7 +43,7 @@ const SliderManagement = () => {
   };
 
   useEffect(() => {
-    fetchImages();
+    fetchSliderImages();
   }, []);
 
   const handleFileChange = (slotIdx, file) => {
@@ -60,7 +61,7 @@ const SliderManagement = () => {
     try {
       if (isUpdate) {
         // Güncelleme: PUT ile ilgili id'ye yükle
-        await axios.put(`${API_URL}/${sliderSlots[slotIdx].id}`, formData, {
+        await axios.put(`${API_BASE_URL}/SliderImages/${sliderSlots[slotIdx].id}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             ...(token && { Authorization: `Bearer ${token}` })
@@ -68,7 +69,7 @@ const SliderManagement = () => {
         });
       } else {
         // Yeni ekleme: POST
-        await axios.post(API_URL, formData, {
+        await axios.post(`${API_BASE_URL}/SliderImages`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
             ...(token && { Authorization: `Bearer ${token}` })
@@ -77,7 +78,7 @@ const SliderManagement = () => {
       }
       setSnackbar({ open: true, message: `#${slotIdx + 1} slider görseli güncellendi.`, severity: 'success' });
       setSelectedFiles((prev) => prev.map((f, i) => (i === slotIdx ? null : f)));
-      fetchImages();
+      fetchSliderImages();
     } catch (err) {
       setSnackbar({ open: true, message: 'Yükleme başarısız.', severity: 'error' });
     } finally {

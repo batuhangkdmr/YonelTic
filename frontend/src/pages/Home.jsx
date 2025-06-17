@@ -8,6 +8,12 @@ import { Helmet } from 'react-helmet-async';
 import FAQ from '../components/FAQ';
 import { memo, useMemo, useCallback, useState, useEffect } from 'react';
 
+// Marka logolarını import ediyoruz
+import karatasLogo from '../assets/karatas.png';
+import fotonLogo from '../assets/foton.png';
+import mutluLogo from '../assets/mutlu.png';
+import ivecoLogo from '../assets/iveco.png';
+import lovolLogo from '../assets/lovol.png';
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -42,6 +48,39 @@ const advantages = [
   },
 ];
 
+const brands = [
+  {
+    id: 'karatas',
+    name: 'Karataş Traktör',
+    image: karatasLogo,
+    description: 'Karataş Traktör yedek parçaları'
+  },
+  {
+    id: 'foton',
+    name: 'Foton Traktör',
+    image: fotonLogo,
+    description: 'Foton Traktör yedek parçaları'
+  },
+  {
+    id: 'mutlu',
+    name: 'Mutlu Akü',
+    image: mutluLogo,
+    description: 'Mutlu Akü ürünleri'
+  },
+  {
+    id: 'iveco',
+    name: 'Iveco',
+    image: ivecoLogo,
+    description: 'Iveco yedek parçaları'
+  },
+  {
+    id: 'lovol',
+    name: 'Lovol',
+    image: lovolLogo,
+    description: 'Lovol yedek parçaları'
+  }
+];
+
 const placeholder = '/images/placeholder.png';
 
 const ProductCard = memo(({ product, onClick }) => (
@@ -54,8 +93,6 @@ const ProductCard = memo(({ product, onClick }) => (
       borderRadius: 3,
       p: 2,
       cursor: 'pointer',
-      transition: 'transform 0.18s, box-shadow 0.18s',
-      '&:hover': { transform: 'scale(1.04)', boxShadow: 8 },
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center',
@@ -146,6 +183,56 @@ const AdvantageCard = memo(({ advantage }) => (
   </Grid>
 ));
 
+const BrandCard = memo(({ brand }) => {
+  const navigate = useNavigate();
+
+  const handleBrandClick = useCallback(() => {
+    navigate('/products');
+  }, [navigate]);
+
+  return (
+    <Paper
+      elevation={3}
+      sx={{
+        minWidth: { xs: 200, md: 220 },
+        maxWidth: 240,
+        flex: '0 0 auto',
+        borderRadius: 3,
+        p: 2,
+        cursor: 'pointer',
+        transition: 'transform 0.18s, box-shadow 0.18s',
+        '&:hover': { transform: 'scale(1.04)', boxShadow: 8 },
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center',
+      }}
+      onClick={handleBrandClick}
+    >
+      <Box 
+        component="img" 
+        src={brand.image} 
+        alt={brand.name} 
+        sx={{ 
+          width: 120, 
+          height: 120, 
+          objectFit: 'contain', 
+          mb: 2, 
+          bgcolor: '#f3f4f6', 
+          borderRadius: 2,
+          p: 1
+        }}
+        loading="lazy"
+      />
+      <Typography variant="subtitle1" fontWeight={700} align="center" sx={{ mb: 1, fontSize: 17 }}>
+        {brand.name}
+      </Typography>
+      <Typography variant="body2" color="text.secondary" align="center" sx={{ fontSize: 13 }}>
+        {brand.description}
+      </Typography>
+    </Paper>
+  );
+});
+
 // Custom arrow components
 const Arrow = ({ className, style, onClick, direction }) => (
   <Box
@@ -185,8 +272,27 @@ const Home = () => {
   const theme = useTheme();
   const isWeb = useMediaQuery(theme.breakpoints.up('md'));
   
-  // Öne çıkan ürünler için boş bir dizi kullanıyoruz
-  const featuredProducts = useMemo(() => [], []);
+  // Öne çıkan ürünler için dizi
+  const featuredProducts = useMemo(() => [
+    {
+      name: 'Foton Yağ Filtresi',
+      image: '/images/foton-oil-filter.jpg',
+      description: 'Foton traktörler için özel üretim yağ filtresi',
+      subCategory: 'Yağ Filtresi'
+    },
+    {
+      name: 'Mutlu 60AH Akü',
+      image: '/images/mutlu-60ah.jpg',
+      description: 'Mutlu 60AH kuru akü, uzun ömürlü performans',
+      subCategory: 'Akü'
+    },
+    {
+      name: 'Karataş Motor Yağı',
+      image: '/images/karatas-oil.jpg',
+      description: 'Karataş traktörler için özel formül motor yağı',
+      subCategory: 'Motor Yağı'
+    }
+  ], []);
 
   // Slider görselleri için state
   const [sliderImages, setSliderImages] = useState([]);
@@ -308,22 +414,16 @@ const Home = () => {
         </Box>
       </Box>
 
-      {/* Resim büyütme modalı */}
-      <Dialog open={!!openImage} onClose={() => setOpenImage(null)} maxWidth="md" PaperProps={{ sx: { bgcolor: 'transparent', boxShadow: 'none' } }}>
-        <Box sx={{ outline: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: 'transparent' }}>
-          <Box component="img" src={openImage} alt="Büyük görsel" sx={{ maxWidth: '90vw', maxHeight: '90vh', borderRadius: 3, boxShadow: 6, bgcolor: '#fff' }} />
-        </Box>
-      </Dialog>
-
-      {/* Öne Çıkan Ürünler */}
+      {/* Öne Çıkan Markalar */}
       <Container maxWidth={false} disableGutters sx={{ 
         py: 6, 
         px: { xs: 0, md: 8 },
         overflowX: 'hidden',
         width: '100vw',
+        bgcolor: '#f8f9fa'
       }}>
         <Typography variant="h4" fontWeight={700} align="center" sx={{ color: 'darkred', mb: 3 }}>
-          Öne Çıkan Ürünler
+          Öne Çıkan Markalarımız
         </Typography>
         <Box
           sx={{
@@ -341,15 +441,85 @@ const Home = () => {
             scrollbarWidth: 'none'
           }}
         >
+          {brands.map((brand) => (
+            <BrandCard key={brand.name} brand={brand} />
+          ))}
+        </Box>
+      </Container>
+
+      {/* Öne Çıkan Ürünler */}
+      <Container maxWidth={false} disableGutters sx={{ 
+        py: 6, 
+        px: { xs: 0, md: 8 },
+        overflowX: 'hidden',
+        width: '100vw',
+        bgcolor: '#f8f9fa'
+      }}>
+        <Typography variant="h4" fontWeight={700} align="center" sx={{ color: 'darkred', mb: 3 }}>
+          Öne Çıkan Ürünlerimiz
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: 4,
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            maxWidth: '1200px',
+            mx: 'auto',
+            px: 2
+          }}
+        >
           {featuredProducts.map((product) => (
             <ProductCard 
               key={product.name} 
               product={product} 
-              onClick={() => handleProductClick(product)}
+              onClick={() => setOpenImage(product.image)}
             />
           ))}
         </Box>
       </Container>
+
+      {/* Resim büyütme modalı */}
+      <Dialog 
+        open={!!openImage} 
+        onClose={() => setOpenImage(null)} 
+        maxWidth="md" 
+        PaperProps={{ 
+          sx: { 
+            bgcolor: 'transparent', 
+            boxShadow: 'none',
+            maxWidth: '90vw',
+            maxHeight: '90vh'
+          } 
+        }}
+      >
+        <Box 
+          sx={{ 
+            outline: 'none', 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            bgcolor: 'transparent',
+            position: 'relative'
+          }}
+        >
+          <Box 
+            component="img" 
+            src={openImage} 
+            alt="Büyük görsel" 
+            sx={{ 
+              maxWidth: '100%',
+              maxHeight: '90vh',
+              borderRadius: 3,
+              boxShadow: 6,
+              bgcolor: '#fff',
+              objectFit: 'contain'
+            }} 
+          />
+        </Box>
+      </Dialog>
 
       {/* Avantajlar */}
       <Container maxWidth={false} disableGutters sx={{ 
