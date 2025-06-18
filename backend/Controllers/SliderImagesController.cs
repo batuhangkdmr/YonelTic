@@ -65,4 +65,26 @@ public class SliderImagesController : ControllerBase
         await _context.SaveChangesAsync();
         return NoContent();
     }
+
+    // PUT: api/SliderImages/{id}
+    [HttpPut("{id}")]
+    [Authorize]
+    public async Task<IActionResult> UpdateSliderImage(int id, [FromForm] SliderImageUploadDto dto)
+    {
+        var sliderImage = await _context.SliderImages.FindAsync(id);
+        if (sliderImage == null)
+            return NotFound();
+
+        if (dto.Image != null && dto.Image.Length > 0)
+        {
+            // Eski resmi sil
+            await _cloudinaryService.DeleteImageAsync(sliderImage.CloudinaryPublicId);
+            // Yeni resmi yükle
+            var (url, publicId) = await _cloudinaryService.UploadImageAsync(dto.Image);
+            sliderImage.ImageUrl = url;
+            sliderImage.CloudinaryPublicId = publicId;
+        }
+        await _context.SaveChangesAsync();
+        return Ok(sliderImage);
+    }
 } 

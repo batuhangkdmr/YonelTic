@@ -7850,11 +7850,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\backend.csproj",
+      "projectPath": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\lelek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lelek\\Desktop\\projj\\yonel 2\\yonel 2\\backend\\obj\\",
+      "outputPath": "C:\\Users\\lelek\\Desktop\\Yonel-son\\yonel\\yonel\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

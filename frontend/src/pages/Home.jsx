@@ -7,56 +7,31 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import FAQ from '../components/FAQ';
 import { memo, useMemo, useCallback, useState, useEffect } from 'react';
-import ivecoLogo from '../assets/iveco.png';
+import config from '../config';
+
+// Marka logolarını import ediyoruz
 import karatasLogo from '../assets/karatas.png';
 import fotonLogo from '../assets/foton.png';
 import mutluLogo from '../assets/mutlu.png';
-import ducatoLogo from '../assets/ducato.jpg';
+import ivecoLogo from '../assets/iveco.png';
 import lovolLogo from '../assets/lovol.png';
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import sliderImg1 from '../assets/slider.png';
-import sliderImg2 from '../assets/slider1.png';
-import sliderImg3 from '../assets/slider2.png';
 import Dialog from '@mui/material/Dialog';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
-const brands = [
-  {
-    name: 'Karataş Traktör',
-    image: karatasLogo,
-  },
-  {
-    name: 'Foton Traktör',
-    image: fotonLogo,
-  },
-  {
-    name: 'Mutlu Akü',
-    image: mutluLogo,
-  },
-  {
-    name: 'Iveco',
-    image: ivecoLogo,
-  },
-  {
-    name: 'Ducato',
-    image: ducatoLogo,
-  },
-  {
-    name: 'Lovol',
-    image: lovolLogo,
-  },
-];
+const API_BASE_URL = config.API_BASE_URL;
 
 const advantages = [
   {
     icon: <DirectionsCarFilledIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
     title: 'Geniş Ürün Yelpazesi',
-    desc: '500+ çeşit yedek parça ve aksesuar.'
+    desc: '2000+ çeşit yedek parça ve aksesuar.'
   },
   {
     icon: <VerifiedIcon sx={{ fontSize: 40, color: 'primary.main' }} />,
@@ -75,6 +50,39 @@ const advantages = [
   },
 ];
 
+const brands = [
+  {
+    id: 'karatas',
+    name: 'Karataş Traktör',
+    image: karatasLogo,
+    description: 'Karataş Traktör yedek parçaları'
+  },
+  {
+    id: 'foton',
+    name: 'Foton Traktör',
+    image: fotonLogo,
+    description: 'Foton Traktör yedek parçaları'
+  },
+  {
+    id: 'mutlu',
+    name: 'Mutlu Akü',
+    image: mutluLogo,
+    description: 'Mutlu Akü ürünleri'
+  },
+  {
+    id: 'iveco',
+    name: 'Iveco',
+    image: ivecoLogo,
+    description: 'Iveco yedek parçaları'
+  },
+  {
+    id: 'lovol',
+    name: 'Lovol',
+    image: lovolLogo,
+    description: 'Lovol yedek parçaları'
+  }
+];
+
 const placeholder = '/images/placeholder.png';
 
 const ProductCard = memo(({ product, onClick }) => (
@@ -87,8 +95,6 @@ const ProductCard = memo(({ product, onClick }) => (
       borderRadius: 3,
       p: 2,
       cursor: 'pointer',
-      transition: 'transform 0.18s, box-shadow 0.18s',
-      '&:hover': { transform: 'scale(1.04)', boxShadow: 8 },
       display: 'flex', 
       flexDirection: 'column', 
       alignItems: 'center',
@@ -179,6 +185,56 @@ const AdvantageCard = memo(({ advantage }) => (
   </Grid>
 ));
 
+const BrandCard = memo(({ brand }) => {
+  const navigate = useNavigate();
+
+  const handleBrandClick = useCallback(() => {
+    navigate('/products');
+  }, [navigate]);
+
+  return (
+    <Paper
+      elevation={3}
+      sx={{
+        minWidth: { xs: 200, md: 220 },
+        maxWidth: 240,
+        flex: '0 0 auto',
+        borderRadius: 3,
+        p: 2,
+        cursor: 'pointer',
+        transition: 'transform 0.18s, box-shadow 0.18s',
+        '&:hover': { transform: 'scale(1.04)', boxShadow: 8 },
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center',
+      }}
+      onClick={handleBrandClick}
+    >
+      <Box 
+        component="img" 
+        src={brand.image} 
+        alt={brand.name} 
+        sx={{ 
+          width: 120, 
+          height: 120, 
+          objectFit: 'contain', 
+          mb: 2, 
+          bgcolor: '#f3f4f6', 
+          borderRadius: 2,
+          p: 1
+        }}
+        loading="lazy"
+      />
+      <Typography variant="subtitle1" fontWeight={700} align="center" sx={{ mb: 1, fontSize: 17 }}>
+        {brand.name}
+      </Typography>
+      <Typography variant="body2" color="text.secondary" align="center" sx={{ fontSize: 13 }}>
+        {brand.description}
+      </Typography>
+    </Paper>
+  );
+});
+
 // Custom arrow components
 const Arrow = ({ className, style, onClick, direction }) => (
   <Box
@@ -186,46 +242,62 @@ const Arrow = ({ className, style, onClick, direction }) => (
     onClick={onClick}
     sx={{
       ...style,
-      display: 'flex',
+      display: 'flex !important',
       alignItems: 'center',
       justifyContent: 'center',
-      bgcolor: 'rgba(255,255,255,0.9)',
+      bgcolor: 'rgba(255,255,255,0.95)',
       borderRadius: '50%',
-      width: 40,
-      height: 40,
-      zIndex: 2,
+      width: { xs: 48, md: 40 },
+      height: { xs: 48, md: 40 },
+      zIndex: 99,
       boxShadow: 2,
       color: 'darkred',
       '&:before': { display: 'none' },
       position: 'absolute',
       top: '50%',
-      left: direction === 'left' ? 8 : 'auto',
-      right: direction === 'right' ? 8 : 'auto',
+      left: direction === 'left' ? { xs: 4, md: 8 } : 'auto',
+      right: direction === 'right' ? { xs: 4, md: 8 } : 'auto',
       transform: 'translateY(-50%)',
       cursor: 'pointer',
-      fontSize: 28,
+      fontSize: { xs: 32, md: 28 },
+      transition: 'all 0.2s',
+      border: '2px solid #eee',
     }}
   >
-    {direction === 'left' ? <ArrowBackIosNewIcon sx={{ fontSize: 22 }} /> : <ArrowForwardIosIcon sx={{ fontSize: 22 }} />}
+    {direction === 'left' ? <ArrowBackIosNewIcon sx={{ fontSize: { xs: 28, md: 22 } }} /> : <ArrowForwardIosIcon sx={{ fontSize: { xs: 28, md: 22 } }} />}
   </Box>
 );
-
-const API_BASE_URL = 'http://localhost:5054/api';
 
 const Home = () => {
   const navigate = useNavigate();
   const [openImage, setOpenImage] = useState(null);
   const theme = useTheme();
   const isWeb = useMediaQuery(theme.breakpoints.up('md'));
-  const [sliderImages, setSliderImages] = useState([]);
   
-  // Öne çıkan ürünler için boş bir dizi kullanıyoruz
-  const featuredProducts = useMemo(() => [], []);
+  // Öne çıkan ürünler için dizi
+  const featuredProducts = useMemo(() => [
+    {
+      name: 'Foton Yağ Filtresi',
+      image: '/images/foton-oil-filter.jpg',
+      description: 'Foton traktörler için özel üretim yağ filtresi',
+      subCategory: 'Yağ Filtresi'
+    },
+    {
+      name: 'Mutlu 60AH Akü',
+      image: '/images/mutlu-60ah.jpg',
+      description: 'Mutlu 60AH kuru akü, uzun ömürlü performans',
+      subCategory: 'Akü'
+    },
+    {
+      name: 'Karataş Motor Yağı',
+      image: '/images/karatas-oil.jpg',
+      description: 'Karataş traktörler için özel formül motor yağı',
+      subCategory: 'Motor Yağı'
+    }
+  ], []);
 
-  // useCallback ile event handler'ları memoize edelim
-  const handleProductClick = useCallback((product) => {
-    navigate(`/products/${product.name.replace(/ /g, '-').toLowerCase()}`);
-  }, [navigate]);
+  // Slider görselleri için state
+  const [sliderImages, setSliderImages] = useState([]);
 
   useEffect(() => {
     const fetchSliderImages = async () => {
@@ -241,161 +313,119 @@ const Home = () => {
     fetchSliderImages();
   }, []);
 
-  const SLIDER_SLOT_COUNT = 6;
-  const SLIDER_PER_VIEW = 3;
-  const sliderPlaceholder = '/images/placeholder.png';
-  const sliderSlots = Array.from({ length: SLIDER_SLOT_COUNT }).map((_, i) => sliderImages[i]?.imageUrl || sliderImages[i]?.ImageUrl || sliderPlaceholder);
-  const sliderGroups = [
-    sliderSlots.slice(0, SLIDER_PER_VIEW),
-    sliderSlots.slice(SLIDER_PER_VIEW, SLIDER_SLOT_COUNT)
-  ];
+  // useCallback ile event handler'ları memoize edelim
+  const handleProductClick = useCallback((product) => {
+    navigate(`/products/${product.name.replace(/ /g, '-').toLowerCase()}`);
+  }, [navigate]);
 
   return (
     <Box sx={{ width: '100vw', maxWidth: '100vw', overflowX: 'hidden', boxSizing: 'border-box', m: 0, p: 0 }}>
       <Helmet>
         <title>Yönel Oto & Yedek Parça | Ana Sayfa</title>
-        <meta name="description" content="Yönel Oto & Yedek Parça ana sayfası. Traktör, akü ve ticari araç yedek parçada güvenilir çözüm ortağınız." />
+        <meta name="description" content="Yönel Oto & Yedek Parça ana sayfası. Traktör, Akü, Iveco, Ducato ve ticari araç yedek parçada 2000+ çeşit ürün, hızlı teslimat ve uzman destek ile güvenilir çözüm ortağınız." />
+        <meta name="keywords" content="Yönel Oto, Yedek Parça, Traktör Yedek Parça, Akü, Iveco, Ducato, Karataş Traktör, Foton Traktör, Mutlu Akü, Lovol, ticari araç, orijinal yedek parça, hızlı teslimat, Tokat yedek parça, Türkiye geneli kargo" />
         <meta property="og:title" content="Yönel Oto & Yedek Parça | Ana Sayfa" />
-        <meta property="og:description" content="Yönel Oto & Yedek Parça ana sayfası. Traktör, akü ve ticari araç yedek parçada güvenilir çözüm ortağınız." />
+        <meta property="og:description" content="Traktör, Akü, Iveco, Ducato ve ticari araç yedek parçada 2000+ çeşit ürün, hızlı teslimat ve uzman destek ile güvenilir çözüm ortağınız." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://yoneloto.com" />
+        <meta property="og:image" content="https://yoneloto.com/og-image.jpg" />
       </Helmet>
 
-      {/* Slider Alanı */}
-      <Box sx={{ width: '100vw', maxWidth: '100vw', overflowX: 'hidden', mt: 4, mb: 6, bgcolor: '#fff', boxSizing: 'border-box', px: 0 }}>
-        <Slider
-          dots={true}
-          infinite={false}
-          speed={500}
-          slidesToShow={1}
-          slidesToScroll={1}
-          arrows={isWeb}
-          nextArrow={isWeb ? <Arrow direction="right" /> : null}
-          prevArrow={isWeb ? <Arrow direction="left" /> : null}
-        >
-          {sliderGroups.map((group, idx) => (
-            <Box
-              key={"slider-group-" + idx}
-              sx={{
-                width: '100vw',
-                maxWidth: '100vw',
-                height: { xs: 200, md: 320 },
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                m: 0,
-                p: 0,
-              }}
+      {/* Slider ve Açıklama Alanı */}
+      <Box sx={{
+        width: '100%',
+        maxWidth: '1200px',
+        mx: 'auto',
+        mt: 4,
+        mb: 6,
+        display: 'flex',
+        flexDirection: { xs: 'column', md: 'row' },
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 4,
+        bgcolor: '#fff',
+        px: 2,
+        py: 2,
+        borderRadius: 3,
+        boxShadow: 2
+      }}>
+        {/* Açıklama Alanı */}
+        <Box sx={{
+          flex: 1,
+          minWidth: 220,
+          maxWidth: 360,
+          textAlign: { xs: 'center', md: 'left' },
+          mb: { xs: 3, md: 0 }
+        }}>
+          <Typography variant="h4" fontWeight={700} sx={{ color: 'darkred', mb: 2 }}>
+            Hoşgeldiniz!
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            Yönel Oto & Yedek Parça olarak, Traktör, Akü ve Iveco Ducato yedek parçada güvenilir çözüm ortağınızız. 2000+ çeşit ürün ve uzman desteğimizle hizmetinizdeyiz.
+          </Typography>
+        </Box>
+        {/* Slider Alanı */}
+        <Box sx={{ flex: 1, display: 'flex', justifyContent: 'center' }}>
+          <Box sx={{ width: '800px', maxWidth: '100%' }}>
+            <Slider
+              dots={false}
+              infinite={true}
+              speed={500}
+              slidesToShow={1}
+              slidesToScroll={1}
+              autoplay={true}
+              autoplaySpeed={2500}
+              arrows={true}
+              nextArrow={<Arrow direction="right" />}
+              prevArrow={<Arrow direction="left" />}
             >
-              {group.map((imgSrc, i) => (
+              {sliderImages.map((img, idx) => (
                 <Box
-                  key={imgSrc + i}
+                  key={idx}
                   sx={{
-                    display: 'inline-block',
-                    width: '33.33vw',
-                    height: { xs: 200, md: 320 },
-                    verticalAlign: 'top',
+                    width: '100%',
+                    height: { xs: 220, md: 420 },
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                     bgcolor: '#fff',
-                    borderRadius: 3,
-                    boxShadow: 2,
-                    p: 1,
                     overflow: 'hidden',
-                    mx: 0.5,
+                    m: 0,
+                    p: 0,
                   }}
                 >
                   <Box
                     component="img"
-                    src={imgSrc}
-                    alt={`Slider görseli ${idx * SLIDER_PER_VIEW + i + 1}`}
+                    src={img.imageUrl || img.ImageUrl}
+                    alt={`Slider görseli ${idx + 1}`}
                     sx={{
                       width: '100%',
                       height: '100%',
-                      objectFit: 'cover',
-                      borderRadius: 2,
-                      cursor: imgSrc !== sliderPlaceholder ? 'pointer' : 'default',
-                      opacity: imgSrc === sliderPlaceholder ? 0.4 : 1,
+                      objectFit: 'contain',
+                      borderRadius: 3,
+                      boxShadow: 2,
+                      display: 'block',
+                      cursor: 'pointer',
                     }}
-                    onClick={() => imgSrc !== sliderPlaceholder && setOpenImage(imgSrc)}
+                    onClick={() => setOpenImage(img.imageUrl || img.ImageUrl)}
                   />
                 </Box>
               ))}
-            </Box>
-          ))}
-        </Slider>
+            </Slider>
+          </Box>
+        </Box>
       </Box>
 
-      {/* Resim büyütme modalı */}
-      <Dialog open={!!openImage} onClose={() => setOpenImage(null)} maxWidth="md" PaperProps={{ sx: { bgcolor: 'transparent', boxShadow: 'none' } }}>
-        <Box sx={{ outline: 'none', display: 'flex', justifyContent: 'center', alignItems: 'center', bgcolor: 'transparent' }}>
-          <Box component="img" src={openImage} alt="Büyük görsel" sx={{ maxWidth: '90vw', maxHeight: '90vh', borderRadius: 3, boxShadow: 6, bgcolor: '#fff' }} />
-        </Box>
-      </Dialog>
-
-      {/* Marka Logoları */}
-      <Container maxWidth={false} disableGutters sx={{ py: 6, px: { xs: 2, md: 8 } }} id="brands">
-        <Typography variant="h4" align="center" fontWeight={600} gutterBottom sx={{ color: 'darkred' }}>
-          Öne Çıkan Markalarımız
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center', flexWrap: 'wrap', py: 2 }}>
-          {brands.map((brand) => {
-            // URL parametresi için markanın value'sunu belirle
-            let brandValue = brand.name.toLowerCase().includes('karataş') ? 'karatas'
-              : brand.name.toLowerCase().includes('foton') ? 'foton'
-              : brand.name.toLowerCase().includes('mutlu') ? 'mutlu'
-              : brand.name.toLowerCase().includes('iveco') ? 'iveco'
-              : brand.name.toLowerCase().includes('ducato') ? 'ducato'
-              : brand.name.toLowerCase().includes('lovol') ? 'foton' // Lovol, Foton ile aynı ürünlerde
-              : '';
-            return (
-              <Box
-                key={brand.name}
-                component="button"
-                onClick={() => navigate(`/products?brand=${brandValue}`)}
-                sx={{
-                  border: 'none',
-                  background: 'none',
-                  p: 0,
-                  m: 0,
-                  cursor: 'pointer',
-                  transition: 'transform 0.2s',
-                  '&:hover': { transform: 'scale(1.05)' },
-                  outline: 'none',
-                }}
-              >
-                <Box
-                  component="img"
-                  src={brand.image}
-                  alt={brand.name}
-                  sx={{
-                    width: 180,
-                    height: 130,
-                    objectFit: 'cover',
-                    borderRadius: 3,
-                    boxShadow: 3,
-                    bgcolor: '#fff',
-                    p: 1,
-                  }}
-                  onError={e => {
-                    if (e.target.src.endsWith('placeholder.png')) return;
-                    e.target.onerror = null;
-                    e.target.src = placeholder;
-                  }}
-                  loading="lazy"
-                />
-              </Box>
-            );
-          })}
-        </Box>
-      </Container>
-
-      {/* Öne Çıkan Ürünler */}
+      {/* Öne Çıkan Markalar */}
       <Container maxWidth={false} disableGutters sx={{ 
         py: 6, 
         px: { xs: 0, md: 8 },
         overflowX: 'hidden',
         width: '100vw',
+        bgcolor: '#f8f9fa'
       }}>
         <Typography variant="h4" fontWeight={700} align="center" sx={{ color: 'darkred', mb: 3 }}>
-          Öne Çıkan Ürünler
+          Öne Çıkan Markalarımız
         </Typography>
         <Box
           sx={{
@@ -413,15 +443,85 @@ const Home = () => {
             scrollbarWidth: 'none'
           }}
         >
+          {brands.map((brand) => (
+            <BrandCard key={brand.name} brand={brand} />
+          ))}
+        </Box>
+      </Container>
+
+      {/* Öne Çıkan Ürünler */}
+      <Container maxWidth={false} disableGutters sx={{ 
+        py: 6, 
+        px: { xs: 0, md: 8 },
+        overflowX: 'hidden',
+        width: '100vw',
+        bgcolor: '#f8f9fa'
+      }}>
+        <Typography variant="h4" fontWeight={700} align="center" sx={{ color: 'darkred', mb: 3 }}>
+          Öne Çıkan Ürünlerimiz
+        </Typography>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+            gap: 4,
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+            maxWidth: '1200px',
+            mx: 'auto',
+            px: 2
+          }}
+        >
           {featuredProducts.map((product) => (
             <ProductCard 
               key={product.name} 
               product={product} 
-              onClick={() => handleProductClick(product)}
+              onClick={() => setOpenImage(product.image)}
             />
           ))}
         </Box>
       </Container>
+
+      {/* Resim büyütme modalı */}
+      <Dialog 
+        open={!!openImage} 
+        onClose={() => setOpenImage(null)} 
+        maxWidth="md" 
+        PaperProps={{ 
+          sx: { 
+            bgcolor: 'transparent', 
+            boxShadow: 'none',
+            maxWidth: '90vw',
+            maxHeight: '90vh'
+          } 
+        }}
+      >
+        <Box 
+          sx={{ 
+            outline: 'none', 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            bgcolor: 'transparent',
+            position: 'relative'
+          }}
+        >
+          <Box 
+            component="img" 
+            src={openImage} 
+            alt="Büyük görsel" 
+            sx={{ 
+              maxWidth: '100%',
+              maxHeight: '90vh',
+              borderRadius: 3,
+              boxShadow: 6,
+              bgcolor: '#fff',
+              objectFit: 'contain'
+            }} 
+          />
+        </Box>
+      </Dialog>
 
       {/* Avantajlar */}
       <Container maxWidth={false} disableGutters sx={{ 
@@ -463,4 +563,4 @@ const Home = () => {
   );
 };
 
-export default memo(Home); 
+export default memo(Home);

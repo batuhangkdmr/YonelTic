@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: yoneltic-backend
+    runtime: dotnet
+    repo: https://github.com/batuhangkdmr/YonelTic
+    branch: main
+    rootDir: backend
+    plan: free
+    buildCommand: dotnet publish -c Release -o ./publish
+    startCommand: dotnet ./publish/backend.dll
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        value: Server=104.247.167.194\\MSSQLSERVER2019;Database=yone8215_yoneltic_y;User Id=yone8215_yoneltic_y;Password=yeneltic1_.;TrustServerCertificate=True;
+      - key: Jwt__Key
+        value: your-super-secret-key-with-at-least-32-characters
+      - key: Jwt__Issuer
+        value: https://yoneltic.onrender.com
+      - key: Jwt__Audience
+        value: https://yoneltic.onrender.com
+      - key: AdminSecretKey
+        value: yonel1.
+      - key: Cloudinary__CloudName
+        value: dhqdwiovd
+      - key: Cloudinary__ApiKey
+        value: 985332843956355
+      - key: Cloudinary__ApiSecret
+        value: OYI8UH9Ufe_ljkvxGLm0Loa_rZ4

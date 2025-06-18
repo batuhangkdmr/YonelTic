@@ -174,9 +174,9 @@ const Navbar = () => {
               aria-label="open drawer"
               edge="start"
               onClick={handleDrawerToggle}
-              sx={{ ml: 'auto', pr: { xs: 2, sm: 1 }, display: { sm: 'none' }, minWidth: 0, flexShrink: 1, maxWidth: 48 }}
+              sx={{ ml: 'auto', mr: { xs: 3, sm: 0 }, pr: { xs: 2, sm: 1 }, display: { sm: 'none' }, minWidth: 0, flexShrink: 1, maxWidth: 48 }}
             >
-              <MenuIcon />
+              <MenuIcon sx={{ fontSize: 32 }} />
             </IconButton>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' }, gap: 4, justifyContent: 'center', alignItems: 'center' }}>

@@ -12,8 +12,9 @@ import {
   CircularProgress
 } from '@mui/material';
 import axios from 'axios';
+import config from '../../config';
 
-const API_URL = 'http://localhost:5054/api/SliderImages';
+const API_BASE_URL = config.API_BASE_URL;
 const SLIDER_SLOT_COUNT = 6;
 const sliderPlaceholder = '/images/placeholder.png';
 
@@ -29,10 +30,10 @@ const SliderManagement = () => {
 
   const token = localStorage.getItem('token');
 
-  const fetchImages = async () => {
+  const fetchSliderImages = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(API_URL);
+      const res = await axios.get(`${API_BASE_URL}/SliderImages`);
       setImages(res.data);
     } catch (err) {
       setSnackbar({ open: true, message: 'Slider görselleri alınamadı.', severity: 'error' });
@@ -42,7 +43,7 @@ const SliderManagement = () => {
   };
 
   useEffect(() => {
-    fetchImages();
+    fetchSliderImages();
   }, []);
 
   const handleFileChange = (slotIdx, file) => {
@@ -59,20 +60,25 @@ const SliderManagement = () => {
     formData.append('Image', selectedFiles[slotIdx]);
     try {
       if (isUpdate) {
-        // Sil, sonra ekle (sıra garantisi için)
-        await axios.delete(`${API_URL}/${sliderSlots[slotIdx].id}`, {
-          headers: token ? { Authorization: `Bearer ${token}` } : {}
+        // Güncelleme: PUT ile ilgili id'ye yükle
+        await axios.put(`${API_BASE_URL}/SliderImages/${sliderSlots[slotIdx].id}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            ...(token && { Authorization: `Bearer ${token}` })
+          }
+        });
+      } else {
+        // Yeni ekleme: POST
+        await axios.post(`${API_BASE_URL}/SliderImages`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            ...(token && { Authorization: `Bearer ${token}` })
+          }
         });
       }
-      await axios.post(API_URL, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-          ...(token && { Authorization: `Bearer ${token}` })
-        }
-      });
       setSnackbar({ open: true, message: `#${slotIdx + 1} slider görseli güncellendi.`, severity: 'success' });
       setSelectedFiles((prev) => prev.map((f, i) => (i === slotIdx ? null : f)));
-      fetchImages();
+      fetchSliderImages();
     } catch (err) {
       setSnackbar({ open: true, message: 'Yükleme başarısız.', severity: 'error' });
     } finally {
@@ -81,9 +87,9 @@ const SliderManagement = () => {
   };
 
   return (
-    <Container maxWidth="md" sx={{ mt: 4 }}>
+    <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Typography variant="h4" mb={3}>Slider Yönetimi</Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} justifyContent="center">
         {Array.from({ length: SLIDER_SLOT_COUNT }).map((_, idx) => (
           <Grid item xs={12} sm={6} md={4} key={idx}>
             <Card sx={{ p: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -95,7 +101,7 @@ const SliderManagement = () => {
                 height="160"
                 image={sliderSlots[idx]?.imageUrl || sliderSlots[idx]?.ImageUrl || sliderPlaceholder}
                 alt={`Slider ${idx + 1}`}
-                sx={{ objectFit: 'cover', borderRadius: 2, mb: 2, width: '100%', maxWidth: 260, minHeight: 160, bgcolor: '#f3f3f3' }}
+                sx={{ objectFit: 'cover', borderRadius: 2, mb: 2, width: '100%', minHeight: 160, bgcolor: '#f3f3f3' }}
               />
               <Button
                 variant="contained"
@@ -111,6 +117,15 @@ const SliderManagement = () => {
                   onChange={e => handleFileChange(idx, e.target.files[0])}
                 />
               </Button>
+              {selectedFiles[idx] && (
+                <Box sx={{ mb: 1 }}>
+                  <img
+                    src={URL.createObjectURL(selectedFiles[idx])}
+                    alt="Preview"
+                    style={{ maxWidth: '100%', maxHeight: '100px', objectFit: 'contain' }}
+                  />
+                </Box>
+              )}
               {selectedFiles[idx] && (
                 <Button
                   variant="outlined"

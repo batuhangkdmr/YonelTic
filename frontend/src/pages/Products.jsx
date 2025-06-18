@@ -49,8 +49,11 @@ import gorselImg4 from '../assets/gorsel3.png';
 import React from 'react';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import config from '../config';
 
 const PRODUCTS_PER_PAGE = 30;
+
+const API_BASE_URL = config.API_BASE_URL;
 
 const Products = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -69,9 +72,6 @@ const Products = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [totalProducts, setTotalProducts] = useState(0);
-
-  // API URL'leri
-  const API_BASE_URL = 'http://localhost:5054/api';
 
   // Debounce search
   const debouncedSetSearch = useMemo(() => debounce((val) => setDebouncedSearch(val), 300), []);
@@ -188,12 +188,28 @@ const Products = () => {
     const urlCategory = searchParams.get('category') || 'all';
     const urlSubCategory = searchParams.get('subCategory') || 'all';
     const urlPage = parseInt(searchParams.get('page')) || 1;
+    const urlBrand = searchParams.get('brand');
 
-    console.log('URL params:', { urlCategory, urlSubCategory, urlPage }); // Debug için
+    console.log('URL params:', { urlCategory, urlSubCategory, urlPage, urlBrand }); // Debug için
 
+    if (urlBrand) {
+      // Marka ID'sini kategori ID'sine dönüştür
+      const brandToCategoryMap = {
+        'karatas': '1', // Karataş Traktör
+        'foton': '2',   // Foton Traktör
+        'mutlu': '3',   // Mutlu Akü
+        'iveco': '4',   // Iveco
+        'lovol': '5'    // Lovol
+      };
+      
+      const categoryId = brandToCategoryMap[urlBrand] || 'all';
+      setSelectedBrand(categoryId);
+      setSearchParams({ category: categoryId, page: 1 });
+    } else {
     setSelectedBrand(urlCategory);
     setSelectedSubCategory(urlSubCategory);
     setPage(urlPage);
+    }
   }, [searchParams]);
   
   

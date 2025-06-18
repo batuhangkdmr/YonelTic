@@ -10,43 +10,45 @@ import {
   Link,
 } from '@mui/material';
 import { useNavigate, Link as RouterLink } from 'react-router-dom';
+import config from '../../config';
+
+const API_BASE_URL = config.API_BASE_URL;
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    password: '',
-  });
-  const [error, setError] = useState(null);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    if (name === 'username') {
+      setUsername(value);
+    } else if (name === 'password') {
+      setPassword(value);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5054/api/auth/login', {
+      const response = await fetch(`${API_BASE_URL}/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ username, password }),
       });
 
       if (!response.ok) {
-        throw new Error('Giriş başarısız oldu');
+        throw new Error('Giriş başarısız');
       }
 
       const data = await response.json();
       localStorage.setItem('token', data.token);
-      navigate('/admin');
+      navigate('/admin/products');
     } catch (err) {
-      setError(err.message);
+      setError('Kullanıcı adı veya şifre hatalı');
     }
   };
 
@@ -90,7 +92,7 @@ const Login = () => {
               name="username"
               autoComplete="username"
               autoFocus
-              value={formData.username}
+              value={username}
               onChange={handleInputChange}
             />
             <TextField
@@ -102,7 +104,7 @@ const Login = () => {
               type="password"
               id="password"
               autoComplete="current-password"
-              value={formData.password}
+              value={password}
               onChange={handleInputChange}
             />
             <Button

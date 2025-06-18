@@ -27,6 +27,9 @@ import {
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import config from '../../config';
+
+const API_BASE_URL = config.API_BASE_URL;
 
 const AdminCategories = () => {
   const [categories, setCategories] = useState([]);
@@ -45,7 +48,9 @@ const AdminCategories = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await fetch('http://localhost:5054/api/categories', {
+      setLoading(true);
+      setError(null);
+      const response = await fetch(`${API_BASE_URL}/categories`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`,
         },
@@ -77,8 +82,8 @@ const AdminCategories = () => {
     e.preventDefault();
     try {
       const url = selectedCategory
-        ? `http://localhost:5054/api/categories/${selectedCategory.id}`
-        : 'http://localhost:5054/api/categories';
+        ? `${API_BASE_URL}/categories/${selectedCategory.id}`
+        : `${API_BASE_URL}/categories`;
       const method = selectedCategory ? 'PUT' : 'POST';
       const response = await fetch(url, {
         method,
@@ -98,7 +103,7 @@ const AdminCategories = () => {
   const handleDeleteCategory = async (id) => {
     if (window.confirm('Bu kategoriyi silmek istediğinizden emin misiniz?')) {
       try {
-        const response = await fetch(`http://localhost:5054/api/categories/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/categories/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -129,7 +134,7 @@ const AdminCategories = () => {
     try {
       // Alt kategori ekle
       if (!selectedSubCategory) {
-        const response = await fetch('http://localhost:5054/api/categories', {
+        const response = await fetch(`${API_BASE_URL}/categories`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -140,7 +145,7 @@ const AdminCategories = () => {
         if (!response.ok) throw new Error('Alt kategori eklenemedi');
       } else {
         // Alt kategori düzenle (gerekirse mevcut yapıya göre güncellenebilir)
-        const response = await fetch(`http://localhost:5054/api/categories/${selectedSubCategory.id}`, {
+        const response = await fetch(`${API_BASE_URL}/categories/${selectedSubCategory.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -159,7 +164,7 @@ const AdminCategories = () => {
   const handleDeleteSubCategory = async (categoryId, subCategoryId) => {
     if (window.confirm('Bu alt kategoriyi silmek istediğinizden emin misiniz?')) {
       try {
-        const response = await fetch(`http://localhost:5054/api/categories/${subCategoryId}`, {
+        const response = await fetch(`${API_BASE_URL}/categories/${subCategoryId}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
@@ -194,7 +199,7 @@ const AdminCategories = () => {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
-        <Typography variant="h4">Kategori Yönetimi</Typography>
+        <Typography variant="h4">Marka Yönetimi</Typography>
         <Button variant="contained" startIcon={<AddIcon />} onClick={() => handleOpenDialog()}>
           Yeni Kategori
         </Button>
@@ -205,7 +210,7 @@ const AdminCategories = () => {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell>Kategori Adı</TableCell>
+              <TableCell>Marka Adı</TableCell>
               <TableCell>Alt Kategoriler</TableCell>
               <TableCell>İşlemler</TableCell>
             </TableRow>

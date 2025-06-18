@@ -19,6 +19,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AdminCategories from './pages/Admin/Categories';
 import Register from './pages/Admin/Register';
 import SliderManagement from './pages/admin/SliderManagement';
+import HizmetBolgelerimiz from './pages/HizmetBolgelerimiz';
 
 const theme = createTheme({
   palette: {
@@ -113,6 +114,7 @@ const AppContent = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/hizmet-bolgelerimiz" element={<HizmetBolgelerimiz />} />
         </Routes>
       </main>
       {!isAdminRoute && <Footer />}

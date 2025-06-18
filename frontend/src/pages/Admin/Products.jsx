@@ -30,6 +30,9 @@ import AddIcon from '@mui/icons-material/Add';
 import { apiFetch } from '../../utils/api';
 import AdminLayout from '../../components/AdminLayout';
 import Pagination from '@mui/material/Pagination';
+import config from '../../config';
+
+const API_BASE_URL = config.API_BASE_URL;
 
 const AdminProducts = () => {
   const [products, setProducts] = useState([]);
@@ -68,7 +71,7 @@ const AdminProducts = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await apiFetch(`http://localhost:5054/api/products?page=${page}&pageSize=30`);
+      const response = await apiFetch(`${API_BASE_URL}/products?page=${page}&pageSize=30`);
       if (!response.ok) {
         throw new Error('Ürünler yüklenirken bir hata oluştu');
       }
@@ -86,7 +89,7 @@ const AdminProducts = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await apiFetch('http://localhost:5054/api/categories');
+      const response = await apiFetch(`${API_BASE_URL}/categories`);
       if (!response.ok) {
         throw new Error('Kategoriler yüklenirken bir hata oluştu');
       }
@@ -164,8 +167,8 @@ const AdminProducts = () => {
     setDialogError(null);
     try {
       const url = selectedProduct
-        ? `http://localhost:5054/api/products/${selectedProduct.id}`
-        : 'http://localhost:5054/api/products';
+        ? `${API_BASE_URL}/products/${selectedProduct.id}`
+        : `${API_BASE_URL}/products`;
       const method = selectedProduct ? 'PUT' : 'POST';
       const formDataToSend = new FormData();
       formDataToSend.append('name', formData.name);
@@ -196,7 +199,7 @@ const AdminProducts = () => {
 
   const handleDeleteConfirm = async () => {
     try {
-      const response = await apiFetch(`http://localhost:5054/api/products/${productToDelete.id}`, {
+      const response = await apiFetch(`${API_BASE_URL}/products/${productToDelete.id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Ürün silinirken bir hata oluştu');
@@ -274,7 +277,7 @@ const AdminProducts = () => {
                   <TableCell sx={{ color: 'white', fontWeight: 600 }}>Resim</TableCell>
                   <TableCell sx={{ color: 'white', fontWeight: 600 }}>Ürün Adı</TableCell>
                   <TableCell sx={{ color: 'white', fontWeight: 600 }}>Açıklama</TableCell>
-                  <TableCell sx={{ color: 'white', fontWeight: 600 }}>Kategori</TableCell>
+                  <TableCell sx={{ color: 'white', fontWeight: 600 }}>Marka</TableCell>
                   <TableCell sx={{ color: 'white', fontWeight: 600 }}>Alt Kategori</TableCell>
                   <TableCell sx={{ color: 'white', fontWeight: 600 }}>İşlemler</TableCell>
                 </TableRow>

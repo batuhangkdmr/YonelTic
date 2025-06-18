@@ -45,9 +45,14 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("YonelCors", policy =>
     {
-        policy.WithOrigins("http://localhost:5173", "https://yoneloto.com")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "http://localhost:5173/api",
+            "https://yonelotoyedekparca.com",
+            "https://yonelotoyedekparca.com/api"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod();
     });
 });
 
@@ -87,10 +92,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 app.UseCors("YonelCors");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Urls.Add($"http://*:{port}");
 app.Run();
