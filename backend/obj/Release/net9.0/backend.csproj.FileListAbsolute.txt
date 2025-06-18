@@ -174,3 +174,10 @@ C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\obj\Release\net9.0\refint\b
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\obj\Release\net9.0\backend.pdb
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\obj\Release\net9.0\backend.genruntimeconfig.cache
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\obj\Release\net9.0\ref\backend.dll
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Release\net9.0\publish\web.config
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Release\net9.0\publish\appsettings.Development.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Release\net9.0\publish\appsettings.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Release\net9.0\publish\backend.deps.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Release\net9.0\publish\backend.runtimeconfig.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Release\net9.0\publish\backend.staticwebassets.endpoints.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Release\net9.0\publish\package-lock.json

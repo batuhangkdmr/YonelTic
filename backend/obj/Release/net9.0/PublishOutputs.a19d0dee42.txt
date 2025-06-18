@@ -1,7 +1,14 @@
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\backend.exe
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\publish\web.config
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\appsettings.Development.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\appsettings.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\package-lock.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\publish\appsettings.Development.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\publish\appsettings.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\publish\backend.deps.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\publish\backend.runtimeconfig.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\publish\backend.staticwebassets.endpoints.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\publish\package-lock.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\backend.dll
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\backend.runtimeconfig.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\publish\backend.pdb

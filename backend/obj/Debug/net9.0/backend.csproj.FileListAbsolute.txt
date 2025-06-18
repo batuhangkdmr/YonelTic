@@ -521,9 +521,16 @@ C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\backend.pd
 C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\backend.genruntimeconfig.cache
 C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\ref\backend.dll
 C:\Users\lelek\Desktop\projj\yonel 2\yonel 2\backend\obj\Debug\net9.0\backend.sourcelink.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\publish\web.config
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\appsettings.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\package-lock.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\publish\appsettings.Development.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\publish\appsettings.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\publish\backend.deps.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\publish\backend.runtimeconfig.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\publish\backend.staticwebassets.endpoints.json
+C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\publish\package-lock.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\backend.staticwebassets.runtime.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\backend.staticwebassets.endpoints.json
 C:\Users\lelek\Desktop\Yonel-son\yonel\yonel\backend\bin\Debug\net9.0\backend.exe
