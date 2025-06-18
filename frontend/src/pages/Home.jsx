@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import FAQ from '../components/FAQ';
 import { memo, useMemo, useCallback, useState, useEffect } from 'react';
+import config from '../config';
 
 // Marka logolarını import ediyoruz
 import karatasLogo from '../assets/karatas.png';
@@ -24,6 +25,7 @@ import { useTheme } from '@mui/material/styles';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
+const API_BASE_URL = config.API_BASE_URL;
 
 const advantages = [
   {
@@ -300,7 +302,7 @@ const Home = () => {
   useEffect(() => {
     const fetchSliderImages = async () => {
       try {
-        const response = await fetch('http://localhost:5054/api/SliderImages');
+        const response = await fetch(`${API_BASE_URL}/SliderImages`);
         if (!response.ok) throw new Error('Slider görselleri yüklenemedi');
         const data = await response.json();
         setSliderImages(data);
